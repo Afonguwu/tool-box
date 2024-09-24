@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "git-update-dev": "git checkout dev && git add . && git cz && git push origin dev",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
