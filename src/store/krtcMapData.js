@@ -197,7 +197,8 @@ export const stationData = ref([
     y: y * 0.85 + r * 2.5,
     textAnchor: 'middle',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 0
   },
   {
     seq: 2,
@@ -209,7 +210,8 @@ export const stationData = ref([
     y: y * 0.85 + r * 2.5,
     textAnchor: 'middle',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 1.4
   },
   {
     seq: 3,
@@ -221,7 +223,8 @@ export const stationData = ref([
     y: y * 0.85 + r * 2.5,
     textAnchor: 'middle',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 3.12
   },
   {
     seq: 4,
@@ -233,7 +236,8 @@ export const stationData = ref([
     y: y * 0.825 + r * 0.5,
     textAnchor: 'start',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 4.22
   },
   {
     seq: 5,
@@ -245,7 +249,8 @@ export const stationData = ref([
     y: y * 0.79 + r * 0.5,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 5.41
   },
   {
     seq: 6,
@@ -257,7 +262,8 @@ export const stationData = ref([
     y: y * 0.7 + r * 2.5,
     textAnchor: 'start',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 7
   },
   {
     seq: 7,
@@ -269,7 +275,8 @@ export const stationData = ref([
     y: y * 0.7 - r * 3.875,
     textAnchor: 'start',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 7.64
   },
   {
     seq: 8,
@@ -281,19 +288,21 @@ export const stationData = ref([
     y: y * 0.6 + r * 4.875,
     textAnchor: 'start',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 8.89
   },
   {
     seq: 9,
     stationNum: 'R10',
     chineseName: '美麗島',
-    cx: x * 0.3 - r,
+    cx: x * 0.3,
     cy: y * 0.6,
-    x: x * 0.3 - r * 2,
+    x: x * 0.3 - r * 3.5,
     y: y * 0.6 - r * 2,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 9.1
   },
   {
     seq: 10,
@@ -305,7 +314,8 @@ export const stationData = ref([
     y: y * 0.6 - r * 4.5,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 9.81
   },
   {
     seq: 11,
@@ -317,7 +327,8 @@ export const stationData = ref([
     y: y * 0.5 + r * 5.5,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 10.61
   },
   {
     seq: 12,
@@ -329,7 +340,8 @@ export const stationData = ref([
     y: y * 0.5 + r * 2,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 11.49
   },
   {
     chineseName: '巨蛋',
@@ -341,7 +353,8 @@ export const stationData = ref([
     y: y * 0.1 + redGap * 12 + r * 0.5,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 12.42
   },
   {
     chineseName: '生態園區',
@@ -353,7 +366,8 @@ export const stationData = ref([
     y: y * 0.1 + redGap * 11 + r * 0.5,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 13.34
   },
   {
     chineseName: '左營',
@@ -365,7 +379,8 @@ export const stationData = ref([
     y: y * 0.1 + redGap * 10 + r * 0.5,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 14.42
   },
   {
     seq: 16,
@@ -377,7 +392,8 @@ export const stationData = ref([
     y: y * 0.1 + redGap * 9 + r * 0.5,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 16.11
   },
   {
     chineseName: '油廠國小',
@@ -389,19 +405,21 @@ export const stationData = ref([
     y: y * 0.1 + redGap * 8 + r * 0.5,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 16.82
   },
   {
     seq: 18,
     stationNum: 'R19',
-    chineseName: '楠梓加工區',
+    chineseName: '楠梓科技園區',
     cx: x * 0.3,
     cy: y * 0.1 + redGap * 7,
     x: x * 0.3 - r * 2,
     y: y * 0.1 + redGap * 7 + r * 0.5,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 17.75
   },
   {
     seq: 19,
@@ -413,7 +431,8 @@ export const stationData = ref([
     y: y * 0.1 + redGap * 6 + r * 0.5,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 17.93
   },
   {
     seq: 20,
@@ -425,7 +444,8 @@ export const stationData = ref([
     y: y * 0.1 + redGap * 5 + r * 0.5,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 18.58
   },
   {
     seq: 21,
@@ -437,7 +457,8 @@ export const stationData = ref([
     y: y * 0.1 + redGap * 4 + r * 0.5,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 20.27
   },
   {
     seq: 22,
@@ -449,7 +470,8 @@ export const stationData = ref([
     y: y * 0.1 + redGap * 3 + r * 0.5,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 21.32
   },
   {
     seq: 23,
@@ -461,10 +483,11 @@ export const stationData = ref([
     y: y * 0.1 + redGap * 2 + r * 0.5,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 22.16
   },
   {
-    chineseName: '岡山醫院',
+    chineseName: '岡山高醫',
     seq: 24,
     stationNum: 'R24',
     cx: x * 0.3,
@@ -473,7 +496,8 @@ export const stationData = ref([
     y: y * 0.1 + redGap * 1 + r * 0.5,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
+    fee: 0,
+    distance: 24.58
   },
   {
     seq: 24,
@@ -485,7 +509,17 @@ export const stationData = ref([
     y: y * 0.1 + r * 0.5,
     textAnchor: 'end',
     class: 'red',
-    fee: 0
-  }
+    fee: 0,
+    distance: 25.92
+  },
   // orange
+  {
+    stationNum: 'O5',
+    cx: x * 0.3,
+    cy: y * 0.6,
+    x: x * 0.3 - r * 2,
+    y: y * 0.6 - r * 2,
+    textAnchor: 'end',
+    class: 'specialOrange'
+  }
 ]);
