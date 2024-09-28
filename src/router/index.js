@@ -1,5 +1,6 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHashHistory } from 'vue-router';
+const HomeView = () => import('@/views/HomeView.vue');
+const KrtcMapView = () => import('@/views/KrtcMapView.vue');
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -12,12 +13,9 @@ const router = createRouter({
     {
       path: '/krtcMap',
       name: '高雄捷運輕軌地圖',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/krtcMapView.vue')
+      component: KrtcMapView
     }
   ]
-})
+});
 
-export default router
+export default router;
