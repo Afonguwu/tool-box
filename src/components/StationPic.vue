@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue';
 import { useKRTCStore } from '../store/krtcMapData.js';
 const store = useKRTCStore();
 const {
@@ -9,9 +10,11 @@ const {
   stationData,
   r,
   strokeWidth,
-  showFee,
   calculateFee
 } = store;
+const showFee = computed(()=>{
+  return store.showFee
+})
 </script>
 <template>
   <svg :viewBox="viewBox" style="width: 100%; height: auto" xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +45,7 @@ const {
       stroke-linecap="round"
       stroke-linejoin="round"
     />
-    <slot v-for="station in stationData" :key="station.seq">
+    <template v-for="station in stationData" :key="station.seq">
       <text :x="station.x" :y="station.y" font-size="1rem" :text-anchor="station.textAnchor">
         <tspan :fill="station.class" font-weight="bolder">{{ station.stationNum }}</tspan>
         {{ station.chineseName }}
@@ -57,10 +60,10 @@ const {
         :class="station.class"
         @click="calculateFee(station.seq, station.class)"
       ></circle>
-      <text :x="station.cx" :y="station.cy" text-anchor="middle" dy=".5rem" v-if="showFee">
+      <text :x="station.cx" :y="station.cy" text-anchor="middle" dy=".5rem" v-show="showFee" @click="calculateFee(station.seq, station.class)">
         {{ station.fee }}
       </text>
-    </slot>
+    </template>
   </svg>
 </template>
 <style lang="scss">

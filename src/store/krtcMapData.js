@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue';
+import { ref, computed} from 'vue';
 import { defineStore } from 'pinia';
 export const useKRTCStore = defineStore('krtcDataStore', () => {
   const x = ref(1600);
@@ -19,7 +19,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       `${x.value * 0.1},${y.value * 0.65} ${x.value * 0.25},${y.value * 0.65} ${x.value * 0.28},${y.value * 0.6} ${x.value * 0.8},${y.value * 0.6} ${x.value * 0.85},${y.value * 0.65}`
   );
   let redGap = computed(() => r.value * 4);
-  const stationData = ref([
+  let stationData = ref([
     // red
     {
       seq: 1,
@@ -178,8 +178,8 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       distance: 11.49
     },
     {
-      chineseName: '巨蛋',
       seq: 13,
+      chineseName: '巨蛋',
       stationNum: 'R14',
       cx: x.value * 0.3,
       cy: y.value * 0.1 + redGap.value * 12,
@@ -191,8 +191,8 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       distance: 12.42
     },
     {
-      chineseName: '生態園區',
       seq: 14,
+      chineseName: '生態園區',
       stationNum: 'R15',
       cx: x.value * 0.3,
       cy: y.value * 0.1 + redGap.value * 11,
@@ -204,8 +204,8 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       distance: 13.34
     },
     {
-      chineseName: '左營',
       seq: 15,
+      chineseName: '左營',
       stationNum: 'R16',
       cx: x.value * 0.3,
       cy: y.value * 0.1 + redGap.value * 10,
@@ -230,9 +230,9 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       distance: 16.11
     },
     {
-      chineseName: '油廠國小',
       seq: 17,
       stationNum: 'R18',
+      chineseName: '油廠國小',
       cx: x.value * 0.3,
       cy: y.value * 0.1 + redGap.value * 8,
       x: x.value * 0.3 - r.value * 2,
@@ -321,8 +321,8 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       distance: 22.16
     },
     {
-      chineseName: '岡山高醫',
       seq: 24,
+      chineseName: '岡山高醫',
       stationNum: 'R24',
       cx: x.value * 0.3,
       cy: y.value * 0.1 + redGap.value * 1,
@@ -334,7 +334,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       distance: 24.58
     },
     {
-      seq: 24,
+      seq: 25,
       stationNum: 'RK1',
       chineseName: '岡山車站',
       cx: x.value * 0.3,
@@ -366,7 +366,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
     //起始站 index
     currentStation.value = startStation - 1;
     //顯示價格文字
-    showFee.value = currentStation.value !== null;
+    showFee.value = true;
     //初始化 fee
     stationData.value.forEach((element) => {
       element.fee = 0;
@@ -385,15 +385,15 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
     let max = 0;
     if (category === 'red' || category === 'orange') {
       min = 0;
-      max = 37;
+      max = 25;
     } else if (category === 'lightRail') {
       min = 38;
       max = 75;
     }
-    //計算距離
-    for (let i = min; i <= max; i++) {
-      if (i === currentStation.value) continue;
+    for (let i = min; i < max; i++) {
+       //計算票價級距
       let priceRange = 0;
+      if (i === currentStation.value) continue;
       let num = Math.abs(
         Math.round(stationData.value[i].distance - stationData.value[currentStation.value].distance)
       );
@@ -406,14 +406,16 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
         let count = 1 + Math.ceil((num - 5) / 2) + Math.ceil((num - 17) / 3);
         priceRange = count >= 8 ? 8 : count;
       }
-      //單程票
+      //計算票價
       if (currentDiscount.value === 1) {
         stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
       } else {
         stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
       }
-    }
-  };
+    };
+    console.log(stationData.value);
+    console.log(showFee);
+  }
 
   return {
     x,

@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
-import stationPic from '@/components/stationPic.vue';
-import { useKRTCStore } from '../store/krtcMapData.js';
+import stationPic from '@/components/StationPic.vue';
+import { useKRTCStore } from '@/store/krtcMapData.js';
 const store = useKRTCStore();
 let cardType = ref(1);
 const changeType = (num) => {

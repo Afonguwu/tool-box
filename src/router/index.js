@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-const HomeView = () => import('@/views/HomeView.vue');
-const KrtcMapView = () => import('@/views/KrtcMapView.vue');
+const homeView = () => import('@/views/HomeView.vue');
+const krtcView = () => import('@/views/KrtcMapView.vue');
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -8,12 +8,12 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: homeView
     },
     {
       path: '/krtcMap',
       name: '高雄捷運輕軌地圖',
-      component: KrtcMapView
+      component: krtcView
     }
   ]
 });
