@@ -41,16 +41,16 @@ const {
       stroke-linecap="round"
       stroke-linejoin="round"
     />
-    <template v-for="station in stationData" :key="station.seq">
+    <template v-for="(station,i) in stationData" :key="station.seq">
       <text :x="station.x" :y="station.y" font-size="1rem" :text-anchor="station.textAnchor" :transform="station.transform">
         <tspan :fill="station.class" font-weight="bolder">{{ station.stationNum }}</tspan>
         {{ station.chineseName }}
       </text>
       <circle
-        :r="r"
+        :r="i === 28 ? 20 : r"
         :cx="station.cx"
         :cy="station.cy"
-        fill="#fff"
+        :fill="i === 28 ? 'none' : '#fff'"
         :stroke-width="strokeWidth"
         class="site"
         :class="station.class"
@@ -70,11 +70,6 @@ const {
   stroke: #de0041;
 }
 .orange {
-  stroke: #f49b0f;
-}
-.orangeRing {
-  fill: none;
-  r: 20;
   stroke: #f49b0f;
 }
 .green{
