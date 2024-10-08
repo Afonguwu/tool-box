@@ -369,7 +369,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       chineseName: '哈瑪星',
       cx: 160,
       cy: 1462,
-      x: 112,
+      x: 104,
       y: 1468,
       textAnchor: 'end',
       class: 'orange',
@@ -558,7 +558,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       distance: 11.81,
       transform:null
     },
-    // lightrail seq 40~
+    // lightrail seq 40~77
     {
       seq: 40,
       stationNum: 'C1',
@@ -607,8 +607,8 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       chineseName: '凱旋中華',
       cx: 612,
       cy: 1825,
-      x: 636,
-      y: 1833,
+      x: 630,
+      y: 1848,
       textAnchor: 'start',
       class: 'green',
       fee: 0,
@@ -747,7 +747,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       chineseName: '',
       cx: 192,
       cy: 1462,
-      x: 140,
+      x: 132,
       y: 1468,
       textAnchor: 'end',
       class: 'green',
@@ -1119,42 +1119,65 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
     }
 
     // 起始站
-    stationData.value[currentStation.value].fee = 'here';
+    stationData.value[currentStation.value].fee = 'boy';
 
     //捷運還是輕軌
-    let min = 0;
-    let max = 0;
+    let transferStation = Math.abs(
+      Math.round(stationData.value[8].distance - stationData.value[currentStation.value].distance));
     if (category === 'red' || category === 'orange') {
-      min = 0;
-      max = 25;
-    } else if (category === 'lightRail') {
-      min = 38;
-      max = 75;
-    }
-    for (let i = min; i < max; i++) {
-       //計算票價級距
-      let priceRange = 0;
-      if (i === currentStation.value) continue;
-      let num = Math.abs(
-        Math.round(stationData.value[i].distance - stationData.value[currentStation.value].distance)
-      );
+      //0~38 為 mrt
+      for (let i = 0; i < 39; i++) {
+        //計算票價級距
+       let priceRange = 0;
+       if (i === currentStation.value) continue;
+       if (i === 28) continue;
+        //美麗島票價
 
-      if (num < 5) {
-        priceRange = 0;
-      } else if (num >= 5 && num < 17) {
-        priceRange = 1 + Math.ceil((num - 5) / 2);
-      } else if (num >= 17) {
-        let count = 1 + Math.ceil((num - 5) / 2) + Math.ceil((num - 17) / 3);
-        priceRange = count >= 8 ? 8 : count;
+       //同一線
+       if(stationData.value[i].class === stationData.value[currentStation.value].class){
+        let num = Math.abs(
+          Math.round(stationData.value[i].distance - stationData.value[currentStation.value].distance)
+        );
+  
+        if (num < 5) {
+          priceRange = 0;
+        } else if (num >= 5 && num < 17) {
+          priceRange = 1 + Math.ceil((num - 5) / 2);
+        } else if (num >= 17) {
+          let count = 1 + Math.ceil((num - 5) / 2) + Math.ceil((num - 17) / 3);
+          priceRange = count >= 8 ? 8 : count;
+        }
+        //計算票價
+        if (currentDiscount.value === 1) {
+          stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
+        } else {
+          stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
+        }
+      //不同線
+      }else if(stationData.value[i].class !== stationData.value[currentStation.value].class){
+        let num = Math.abs(
+          Math.round(stationData.value[i].distance - transferStation)
+        );
+  
+        if (num < 5) {
+          priceRange = 0;
+        } else if (num >= 5 && num < 17) {
+          priceRange = 1 + Math.ceil((num - 5) / 2);
+        } else if (num >= 17) {
+          let count = 1 + Math.ceil((num - 5) / 2) + Math.ceil((num - 17) / 3);
+          priceRange = count >= 8 ? 8 : count;
+        }
+        //計算票價
+        if (currentDiscount.value === 1) {
+          stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
+        } else {
+          stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
+        }
       }
-      //計算票價
-      if (currentDiscount.value === 1) {
-        stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
-      } else {
-        stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
-      }
-    };
-    console.log(stationData.value);
+    }
+    } else if (category === 'green') {
+      console.log('輕軌')
+    }
   }
 
   return {

@@ -56,8 +56,10 @@ const {
         :class="station.class"
         @click="calculateFee(station.seq, station.class)"
       ></circle>
-      <text :x="station.cx" :y="station.cy" text-anchor="middle" dy=".5rem" v-show="station.fee!==0" @click="calculateFee(station.seq, station.class)">
-        {{ station.fee }}
+      <text :x="station.cx" :y="station.cy" text-anchor="middle" dominant-baseline="middle" dy=".2rem"  v-show="station.fee!==0" @click="calculateFee(station.seq, station.class)">
+        <tspan class="material-symbols-outlined here" :fill="station.class" v-if="station.fee == 'boy'" dy=".4rem">{{ station.fee }}</tspan>
+        <tspan class="" v-else>{{ station.fee }}</tspan>
+        <!-- {{ station.fee }} -->
       </text>
     </template>
   </svg>
@@ -74,5 +76,8 @@ const {
 }
 .green{
   stroke: #7fbf3d;
+}
+.here{
+  font-size: 1.5rem;
 }
 </style>
