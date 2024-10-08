@@ -1,5 +1,4 @@
 <script setup>
-import { computed } from 'vue';
 import { useKRTCStore } from '../store/krtcMapData.js';
 const store = useKRTCStore();
 const {
@@ -12,9 +11,6 @@ const {
   strokeWidth,
   calculateFee
 } = store;
-const showFee = computed(()=>{
-  return store.showFee
-})
 </script>
 <template>
   <svg :viewBox="viewBox" style="width: 100%; height: auto" xmlns="http://www.w3.org/2000/svg">
@@ -46,7 +42,7 @@ const showFee = computed(()=>{
       stroke-linejoin="round"
     />
     <template v-for="station in stationData" :key="station.seq">
-      <text :x="station.x" :y="station.y" font-size="1rem" :text-anchor="station.textAnchor">
+      <text :x="station.x" :y="station.y" font-size="1rem" :text-anchor="station.textAnchor" :transform="station.transform">
         <tspan :fill="station.class" font-weight="bolder">{{ station.stationNum }}</tspan>
         {{ station.chineseName }}
       </text>
@@ -60,7 +56,7 @@ const showFee = computed(()=>{
         :class="station.class"
         @click="calculateFee(station.seq, station.class)"
       ></circle>
-      <text :x="station.cx" :y="station.cy" text-anchor="middle" dy=".5rem" v-show="showFee" @click="calculateFee(station.seq, station.class)">
+      <text :x="station.cx" :y="station.cy" text-anchor="middle" dy=".5rem" v-show="station.fee!==0" @click="calculateFee(station.seq, station.class)">
         {{ station.fee }}
       </text>
     </template>
@@ -76,9 +72,12 @@ const showFee = computed(()=>{
 .orange {
   stroke: #f49b0f;
 }
-.specialOrange {
+.orangeRing {
   fill: none;
-  stroke-width: 1.5;
+  r: 20;
   stroke: #f49b0f;
+}
+.green{
+  stroke: #7fbf3d;
 }
 </style>
