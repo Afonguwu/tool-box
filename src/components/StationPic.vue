@@ -41,8 +41,14 @@ const {
       stroke-linecap="round"
       stroke-linejoin="round"
     />
-    <template v-for="(station,i) in stationData" :key="station.seq">
-      <text :x="station.x" :y="station.y" font-size="1rem" :text-anchor="station.textAnchor" :transform="station.transform">
+    <template v-for="(station, i) in stationData" :key="station.seq">
+      <text
+        :x="station.x"
+        :y="station.y"
+        font-size="1rem"
+        :text-anchor="station.textAnchor"
+        :transform="station.transform"
+      >
         <tspan :fill="station.class" font-weight="bolder">{{ station.stationNum }}</tspan>
         {{ station.chineseName }}
       </text>
@@ -50,16 +56,26 @@ const {
         :r="i === 28 ? 20 : r"
         :cx="station.cx"
         :cy="station.cy"
-        :fill="i === 28 ? 'none' : '#fff'"
+        :fill="i === 28 ? 'none' : station.fee === 'boy' ? '#fefc4d' : '#fff'"
         :stroke-width="strokeWidth"
         class="site"
         :class="station.class"
         @click="calculateFee(station.seq, station.class)"
       ></circle>
-      <text :x="station.cx" :y="station.cy" text-anchor="middle" dominant-baseline="middle" dy=".2rem"  v-show="station.fee!==0" @click="calculateFee(station.seq, station.class)">
-        <tspan class="material-symbols-outlined here" :fill="station.class" v-if="station.fee == 'boy'" dy=".4rem">{{ station.fee }}</tspan>
+      <text
+        :x="station.cx"
+        :y="station.cy"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        class="site"
+        dy=".2rem"
+        v-show="station.fee !== 0"
+        @click="calculateFee(station.seq, station.class)"
+      >
+        <tspan class="material-symbols-outlined here" v-if="station.fee === 'boy'" dy=".4rem">
+          {{ station.fee }}
+        </tspan>
         <tspan class="" v-else>{{ station.fee }}</tspan>
-        <!-- {{ station.fee }} -->
       </text>
     </template>
   </svg>
@@ -74,10 +90,10 @@ const {
 .orange {
   stroke: #f49b0f;
 }
-.green{
+.green {
   stroke: #7fbf3d;
 }
-.here{
+.here {
   font-size: 1.5rem;
 }
 </style>

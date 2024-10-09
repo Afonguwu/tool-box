@@ -1,4 +1,4 @@
-import { ref, computed} from 'vue';
+import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
 export const useKRTCStore = defineStore('krtcDataStore', () => {
   const x = ref(1600);
@@ -23,7 +23,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 0,
-      transform:null
+      transform: null
     },
     {
       seq: 2,
@@ -37,7 +37,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 1.4,
-      transform:null
+      transform: null
     },
     {
       seq: 3,
@@ -51,7 +51,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 3.12,
-      transform:null
+      transform: null
     },
     {
       seq: 4,
@@ -65,7 +65,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 4.22,
-      transform:null
+      transform: null
     },
     {
       seq: 5,
@@ -79,7 +79,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 5.41,
-      transform:null
+      transform: null
     },
     {
       seq: 6,
@@ -93,7 +93,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 7,
-      transform:null
+      transform: null
     },
     {
       seq: 7,
@@ -107,7 +107,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 7.64,
-      transform:null
+      transform: null
     },
     {
       seq: 8,
@@ -121,7 +121,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 8.89,
-      transform:null
+      transform: null
     },
     //美麗島fee i = [8]
     {
@@ -136,7 +136,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 9.1,
-      transform:null
+      transform: null
     },
     {
       seq: 10,
@@ -150,7 +150,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 9.81,
-      transform:null
+      transform: null
     },
     {
       seq: 11,
@@ -164,7 +164,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 10.61,
-      transform:null
+      transform: null
     },
     {
       seq: 12,
@@ -178,7 +178,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 11.49,
-      transform:null
+      transform: null
     },
     {
       seq: 13,
@@ -192,7 +192,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 12.42,
-      transform:null
+      transform: null
     },
     {
       seq: 14,
@@ -206,7 +206,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 13.34,
-      transform:null
+      transform: null
     },
     {
       seq: 15,
@@ -220,7 +220,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 14.42,
-      transform:null
+      transform: null
     },
     {
       seq: 16,
@@ -234,7 +234,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 16.11,
-      transform:null
+      transform: null
     },
     {
       seq: 17,
@@ -248,7 +248,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 16.82,
-      transform:null
+      transform: null
     },
     {
       seq: 18,
@@ -262,7 +262,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 17.75,
-      transform:null
+      transform: null
     },
     {
       seq: 19,
@@ -276,21 +276,21 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 17.93,
-      transform:null
+      transform: null
     },
     {
       seq: 20,
       stationNum: 'R21',
       chineseName: '都會公園',
       cx: 480,
-      cy:540,
+      cy: 540,
       x: 456,
       y: 548,
       textAnchor: 'end',
       class: 'red',
       fee: 0,
       distance: 18.58,
-      transform:null
+      transform: null
     },
     {
       seq: 21,
@@ -304,7 +304,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 20.27,
-      transform:null
+      transform: null
     },
     {
       seq: 22,
@@ -318,7 +318,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 21.32,
-      transform:null
+      transform: null
     },
     {
       seq: 23,
@@ -332,7 +332,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 22.16,
-      transform:null
+      transform: null
     },
     {
       seq: 24,
@@ -346,7 +346,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 24.58,
-      transform:null
+      transform: null
     },
     {
       seq: 25,
@@ -360,7 +360,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'red',
       fee: 0,
       distance: 25.92,
-      transform:null
+      transform: null
     },
     // orange seq 26~39
     {
@@ -375,7 +375,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'orange',
       fee: 0,
       distance: 0,
-      transform:null
+      transform: null
     },
     {
       seq: 27,
@@ -389,7 +389,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'orange',
       fee: 0,
       distance: 0.89,
-      transform:null
+      transform: null
     },
     {
       seq: 28,
@@ -403,20 +403,20 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'orange',
       fee: 0,
       distance: 2.14,
-      transform:null
+      transform: null
     },
     //只有dot seq 29
     {
       seq: 29,
       stationNum: 'O5',
       chineseName: '',
-      cx:480,
+      cx: 480,
       cy: 1340,
       x: 462,
       y: 1320,
       textAnchor: 'end',
       class: 'orange',
-      fee:0
+      fee: 0
     },
     {
       seq: 30,
@@ -430,7 +430,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'orange',
       fee: 0,
       distance: 3.84,
-      transform:null
+      transform: null
     },
     {
       seq: 31,
@@ -444,7 +444,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'orange',
       fee: 0,
       distance: 4.44,
-      transform:null
+      transform: null
     },
     {
       seq: 32,
@@ -458,7 +458,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'orange',
       fee: 0,
       distance: 5.45,
-      transform:'rotate(-45  880,1316)'
+      transform: 'rotate(-45  880,1316)'
     },
     {
       seq: 33,
@@ -472,7 +472,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'orange',
       fee: 0,
       distance: 6.11,
-      transform:'rotate(-45  944,1316)'
+      transform: 'rotate(-45  944,1316)'
     },
     {
       seq: 34,
@@ -486,7 +486,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'orange',
       fee: 0,
       distance: 6.73,
-      transform:'rotate(-45  1008,1316)'
+      transform: 'rotate(-45  1008,1316)'
     },
     {
       seq: 35,
@@ -500,7 +500,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'orange',
       fee: 0,
       distance: 7.49,
-      transform:'rotate(-45  1072,1316)'
+      transform: 'rotate(-45  1072,1316)'
     },
     {
       seq: 36,
@@ -514,7 +514,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'orange',
       fee: 0,
       distance: 8.22,
-      transform:'rotate(-45  1136,1316)'
+      transform: 'rotate(-45  1136,1316)'
     },
     {
       seq: 37,
@@ -528,7 +528,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'orange',
       fee: 0,
       distance: 9.02,
-      transform:'rotate(-45  1200,1316)'
+      transform: 'rotate(-45  1200,1316)'
     },
     {
       seq: 38,
@@ -542,7 +542,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'orange',
       fee: 0,
       distance: 9.85,
-      transform:'rotate(-45  1264,1316)'
+      transform: 'rotate(-45  1264,1316)'
     },
     {
       seq: 39,
@@ -556,7 +556,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'orange',
       fee: 0,
       distance: 11.81,
-      transform:null
+      transform: null
     },
     // lightrail seq 40~77
     {
@@ -571,7 +571,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 0,
-      transform:null
+      transform: null
     },
     {
       seq: 41,
@@ -585,7 +585,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 0.77,
-      transform:null
+      transform: null
     },
     {
       seq: 42,
@@ -599,7 +599,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 1.44,
-      transform:null
+      transform: null
     },
     {
       seq: 43,
@@ -613,7 +613,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 1.97,
-      transform:null
+      transform: null
     },
     {
       seq: 44,
@@ -627,7 +627,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 2.55,
-      transform:null
+      transform: null
     },
     {
       seq: 45,
@@ -641,7 +641,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 3.27,
-      transform:null
+      transform: null
     },
     {
       seq: 46,
@@ -655,7 +655,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 3.83,
-      transform:null
+      transform: null
     },
     {
       seq: 47,
@@ -669,7 +669,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 4.4,
-      transform:null
+      transform: null
     },
     {
       seq: 48,
@@ -683,7 +683,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 4.9,
-      transform:null
+      transform: null
     },
     {
       seq: 49,
@@ -697,7 +697,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 5.48,
-      transform:null
+      transform: null
     },
     {
       seq: 50,
@@ -711,7 +711,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 5.96,
-      transform:null
+      transform: null
     },
     {
       seq: 51,
@@ -725,7 +725,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 6.5,
-      transform:null
+      transform: null
     },
     {
       seq: 52,
@@ -739,7 +739,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 6.99,
-      transform:null
+      transform: null
     },
     {
       seq: 53,
@@ -753,7 +753,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 7.42,
-      transform:null
+      transform: null
     },
     {
       seq: 54,
@@ -767,7 +767,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 8.03,
-      transform:null
+      transform: null
     },
     {
       seq: 55,
@@ -781,7 +781,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 8.43,
-      transform:null
+      transform: null
     },
     {
       seq: 56,
@@ -795,7 +795,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 9.17,
-      transform:null
+      transform: null
     },
     {
       seq: 57,
@@ -809,7 +809,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 9.86,
-      transform:null
+      transform: null
     },
     {
       seq: 58,
@@ -823,7 +823,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 10.41,
-      transform:null
+      transform: null
     },
     {
       seq: 59,
@@ -837,7 +837,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 10.98,
-      transform:null
+      transform: null
     },
     {
       seq: 60,
@@ -851,7 +851,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 11.33,
-      transform:null
+      transform: null
     },
     {
       seq: 61,
@@ -865,7 +865,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 11.78,
-      transform:'rotate(45 230,1076)'
+      transform: 'rotate(45 230,1076)'
     },
     {
       seq: 62,
@@ -879,7 +879,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 12.15,
-      transform:'rotate(45 290,1076)'
+      transform: 'rotate(45 290,1076)'
     },
     {
       seq: 63,
@@ -893,7 +893,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 12.58,
-      transform:'rotate(45 350,1076)'
+      transform: 'rotate(45 350,1076)'
     },
     {
       seq: 64,
@@ -907,7 +907,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 13.39,
-      transform:'rotate(-45 504,1076)'
+      transform: 'rotate(-45 504,1076)'
     },
     {
       seq: 65,
@@ -921,7 +921,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 14.01,
-      transform:'rotate(-45 566,1076)'
+      transform: 'rotate(-45 566,1076)'
     },
     {
       seq: 66,
@@ -935,7 +935,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 14.7,
-      transform:'rotate(-45 650,1078)'
+      transform: 'rotate(-45 650,1078)'
     },
     {
       seq: 67,
@@ -949,7 +949,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 15.12,
-      transform:'rotate(-45 716,1116)'
+      transform: 'rotate(-45 716,1116)'
     },
     {
       seq: 68,
@@ -963,7 +963,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 15.8,
-      transform:'rotate(-45 768,1156)'
+      transform: 'rotate(-45 768,1156)'
     },
     {
       seq: 69,
@@ -977,7 +977,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 16.5,
-      transform:'rotate(-45 816,1190)'
+      transform: 'rotate(-45 816,1190)'
     },
     {
       seq: 70,
@@ -991,7 +991,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 17.27,
-      transform:'rotate(-45 824,1250)'
+      transform: 'rotate(-45 824,1250)'
     },
     {
       seq: 71,
@@ -1005,7 +1005,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       class: 'green',
       fee: 0,
       distance: 17.76,
-      transform:'rotate(-45 830,1300)'
+      transform: 'rotate(-45 830,1300)'
     },
     {
       seq: 72,
@@ -1090,7 +1090,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       fee: 0,
       distance: 20.64,
       transform: null
-    },
+    }
   ]);
   let currentStation = ref(null);
   let currentDiscount = ref(1);
@@ -1123,49 +1123,79 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
 
     //捷運還是輕軌
     let transferStation = Math.abs(
-      Math.round(stationData.value[8].distance - stationData.value[currentStation.value].distance));
+      Math.round(stationData.value[8].distance - stationData.value[currentStation.value].distance)
+    );
     if (category === 'red' || category === 'orange') {
-      //0~38 為 mrt
+      //[i] 0~38 是 mrt
       for (let i = 0; i < 39; i++) {
         //計算票價級距
-       let priceRange = 0;
-       if (i === currentStation.value) continue;
-       if (i === 28) continue;
+        let priceRange = 0;
+        if (i === currentStation.value) continue;
+        if (i === 28) continue;
         //美麗島票價
 
-       //同一線
-       if(stationData.value[i].class === stationData.value[currentStation.value].class){
+        //同一線
+        if (stationData.value[i].class === stationData.value[currentStation.value].class) {
+          let num = Math.abs(
+            Math.round(
+              stationData.value[i].distance - stationData.value[currentStation.value].distance
+            )
+          );
+
+          if (num < 5) {
+            priceRange = 0;
+          } else if (num >= 5 && num < 17) {
+            priceRange = 1 + Math.ceil((num - 5) / 2);
+          } else if (num >= 17) {
+            let count = 1 + Math.ceil((num - 5) / 2) + Math.ceil((num - 17) / 3);
+            priceRange = count >= 8 ? 8 : count;
+          }
+          //計算票價
+          if (currentDiscount.value === 1) {
+            stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
+          } else {
+            stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
+          }
+          //不同線
+        } else if (stationData.value[i].class !== stationData.value[currentStation.value].class) {
+          let num = Math.abs(Math.round(stationData.value[i].distance - transferStation));
+
+          if (num < 5) {
+            priceRange = 0;
+          } else if (num >= 5 && num < 17) {
+            priceRange = 1 + Math.ceil((num - 5) / 2);
+          } else if (num >= 17) {
+            let count = 1 + Math.ceil((num - 5) / 2) + Math.ceil((num - 17) / 3);
+            priceRange = count >= 8 ? 8 : count;
+          }
+          //計算票價
+          if (currentDiscount.value === 1) {
+            stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
+          } else {
+            stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
+          }
+        }
+      }
+      //輕軌
+    } else if (category === 'green') {
+      // [i] 39~76 是輕軌
+      for (let i = 39; i < 77; i++) {
+        //計算票價級距
+        let priceRange = 0;
+        if (i === currentStation.value) continue;
         let num = Math.abs(
-          Math.round(stationData.value[i].distance - stationData.value[currentStation.value].distance)
+          Math.round(
+            stationData.value[i].distance - stationData.value[currentStation.value].distance
+          )
         );
-  
+
         if (num < 5) {
           priceRange = 0;
-        } else if (num >= 5 && num < 17) {
-          priceRange = 1 + Math.ceil((num - 5) / 2);
-        } else if (num >= 17) {
-          let count = 1 + Math.ceil((num - 5) / 2) + Math.ceil((num - 17) / 3);
-          priceRange = count >= 8 ? 8 : count;
-        }
-        //計算票價
-        if (currentDiscount.value === 1) {
-          stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
-        } else {
-          stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
-        }
-      //不同線
-      }else if(stationData.value[i].class !== stationData.value[currentStation.value].class){
-        let num = Math.abs(
-          Math.round(stationData.value[i].distance - transferStation)
-        );
-  
-        if (num < 5) {
-          priceRange = 0;
-        } else if (num >= 5 && num < 17) {
-          priceRange = 1 + Math.ceil((num - 5) / 2);
-        } else if (num >= 17) {
-          let count = 1 + Math.ceil((num - 5) / 2) + Math.ceil((num - 17) / 3);
-          priceRange = count >= 8 ? 8 : count;
+        } else if (num >= 5 && num < 9) {
+          let count = 1 + Math.ceil((num - 5) / 2);
+          priceRange = count >= 9 ? 3 : count;
+        } else if (num >= 9) {
+          priceRange = 3;
         }
         //計算票價
         if (currentDiscount.value === 1) {
@@ -1174,11 +1204,10 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
           stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
         }
       }
+    } else {
+      console.log('something wrong');
     }
-    } else if (category === 'green') {
-      console.log('輕軌')
-    }
-  }
+  };
 
   return {
     x,
@@ -1196,6 +1225,6 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
     commonDiscount,
     elderDiscount,
     childrenDiscount,
-    calculateFee,
+    calculateFee
   };
 });
