@@ -1,13 +1,11 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from 'vue-router';
 </script>
 
 <template>
   <header>
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/krtcMap">高雄捷運與輕軌地圖</RouterLink>
-    </nav>
+    <RouterLink to="/"><span class="material-symbols-outlined"> home </span></RouterLink>
+    <RouterLink to="/krtcMap">高雄捷運與輕軌地圖</RouterLink>
   </header>
 
   <RouterView />
