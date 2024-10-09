@@ -1,11 +1,9 @@
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { defineStore } from 'pinia';
 export const useKRTCStore = defineStore('krtcDataStore', () => {
-  const x = ref(1600);
-  const y = ref(2200);
   const r = ref(16);
   const strokeWidth = ref(5);
-  const viewBox = computed(() => `0 0 ${x.value} ${y.value}`);
+  const viewBox = ref('0 50 1500 2000');
   const lightRailPoints = '176,1100 640,1100 800,1210 800,1650 560,1870 176,1518 176,1100';
   const redLinePoints = '480,220 480,1600 800,1870 1120,1870';
   const orangeLinePoints = '176,1462 320,1462 400,1340 1360,1340 1400,1375';
@@ -1094,18 +1092,19 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
   ]);
   let currentStation = ref(null);
   let currentDiscount = ref(1);
+  let currentCategory = ref('');
   const changeDiscount = (discount) => {
     currentDiscount.value = discount;
+    calculateFee(currentStation.value + 1, currentCategory.value);
   };
   const basePrice = ref(20);
-  const commonDiscount = ref(0.85);
-  const elderDiscount = ref(0.425);
-  const childrenDiscount = ref(0.5);
   const calculateFee = function (startStation, category) {
+    console.log(currentDiscount.value);
     if (startStation < 1 || startStation > stationData.value.length) {
       console.error('Invalid startStation index');
       return;
     }
+    currentCategory.value = category;
     //起始站 index
     currentStation.value = startStation - 1;
     //初始化 fee
@@ -1121,10 +1120,11 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
     // 起始站
     stationData.value[currentStation.value].fee = 'boy';
 
-    //捷運還是輕軌
+    //美麗島距離出發站距離
     let transferStation = Math.abs(
       Math.round(stationData.value[8].distance - stationData.value[currentStation.value].distance)
     );
+    //捷運還是輕軌
     if (category === 'red' || category === 'orange') {
       //[i] 0~38 是 mrt
       for (let i = 0; i < 39; i++) {
@@ -1152,9 +1152,13 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
           }
           //計算票價
           if (currentDiscount.value === 1) {
-            stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
+            stationData.value[i].fee = Math.round(
+              (basePrice.value + 5 * priceRange) * currentDiscount.value
+            );
           } else {
-            stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
+            stationData.value[i].fee = Math.round(
+              (basePrice.value + 5 * priceRange) * currentDiscount.value
+            );
           }
           //不同線
         } else if (stationData.value[i].class !== stationData.value[currentStation.value].class) {
@@ -1170,9 +1174,11 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
           }
           //計算票價
           if (currentDiscount.value === 1) {
-            stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
+            stationData.value[i].fee = Math.round((basePrice.value + 5 * priceRange) * 1);
           } else {
-            stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
+            stationData.value[i].fee = Math.round(
+              (basePrice.value + 5 * priceRange) * currentDiscount.value
+            );
           }
         }
       }
@@ -1198,10 +1204,17 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
           priceRange = 3;
         }
         //計算票價
-        if (currentDiscount.value === 1) {
-          stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
+        //輕軌社福卡 只有五折，和捷運不同
+        let discount = 0;
+        if (currentDiscount.value === 0.425) {
+          discount = 0.5;
         } else {
-          stationData.value[i].fee = (basePrice.value + 5 * priceRange) * 1;
+          discount = currentDiscount.value;
+        }
+        if (discount === 1) {
+          stationData.value[i].fee = Math.round((basePrice.value + 5 * priceRange) * 1);
+        } else {
+          stationData.value[i].fee = Math.round((basePrice.value + 5 * priceRange) * discount);
         }
       }
     } else {
@@ -1210,8 +1223,6 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
   };
 
   return {
-    x,
-    y,
     r,
     viewBox,
     strokeWidth,
@@ -1220,11 +1231,9 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
     orangeLinePoints,
     stationData,
     currentStation,
+    currentDiscount,
     basePrice,
     changeDiscount,
-    commonDiscount,
-    elderDiscount,
-    childrenDiscount,
     calculateFee
   };
 });
