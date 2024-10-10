@@ -105,6 +105,6 @@ const changeType = (num) => {
   border-color: #f49b36;
 }
 .notice {
-  color: #9d8b0f;
+  color: var(--color-mrt-orange);
 }
 </style>
