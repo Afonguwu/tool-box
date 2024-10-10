@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 const homeView = () => import('@/views/HomeView.vue');
-const krtcView = () => import('@/views/KrtcMapView.vue');
+const krtcView = () => import('@/views/krtcMapView.vue');
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
