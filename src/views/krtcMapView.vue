@@ -4,8 +4,12 @@ import stationPic from '@/components/StationPic.vue';
 import { useKRTCStore } from '@/store/krtcMapData.js';
 const store = useKRTCStore();
 const { changeDiscount } = store;
+let select1 = ref('');
+let select2 = ref('');
 let cardType = ref(1);
 const changeType = (num) => {
+  select1.value = '';
+  select2.value = '';
   if (num === 1) {
     changeDiscount(1);
   } else if (num === 2) {
@@ -35,9 +39,11 @@ const changeType = (num) => {
       class="col"
       v-if="cardType === 1"
       @change="changeDiscount($event.target.value)"
+      v-model="select1"
       name=""
       id=""
     >
+      <option disabled value="">請選擇</option>
       <option value="1">一般票</option>
       <option value="0.5">社福票</option>
       //顯示文字只有捷運才有單程社福票
@@ -46,15 +52,19 @@ const changeType = (num) => {
       class="col"
       v-if="cardType === 2"
       @change="changeDiscount($event.target.value)"
+      v-model="select2"
       name=""
       id=""
     >
+      <option disabled value="">請選擇</option>
       <option value="0.85">普卡/學生卡/高雄市仁愛卡/icash</option>
       <option value="0.425">高雄市社福卡/社福卡</option>
       //做顯示文字：高雄社福卡搭乘輕軌免費
       <option value="0.5">高雄市兒童卡</option>
     </select>
   </div>
+  <p class="mt-1 notice" v-if="select1 === '0.5'">提醒：只有捷運有單程社福票</p>
+  <p class="mt-1 notice" v-if="select2 === '0.425'">提醒：高雄市社福卡搭乘輕軌免費</p>
   <stationPic />
 </template>
 
@@ -63,9 +73,8 @@ const changeType = (num) => {
   display: flex;
 }
 .col {
-  flex: 0 0 25%;
+  flex: 0 1 25%;
 }
-
 .mt-1 {
   margin-top: 1rem;
 }
@@ -94,5 +103,8 @@ const changeType = (num) => {
   background-color: #fff;
   color: #f49b36;
   border-color: #f49b36;
+}
+.notice {
+  color: #9d8b0f;
 }
 </style>

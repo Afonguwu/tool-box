@@ -1099,7 +1099,6 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
   };
   const basePrice = ref(20);
   const calculateFee = function (startStation, category) {
-    console.log(currentDiscount.value);
     if (startStation < 1 || startStation > stationData.value.length) {
       console.error('Invalid startStation index');
       return;
