@@ -1,12 +1,30 @@
 header {
-  border-bottom: 3px solid rgb(17, 112, 112);
-  display: flex;
-  align-items: center;
+  background-color: #274483;
+  padding: 0.5rem;
+  position: relative;
   a {
     border-radius: 12px;
-    color: rgb(8, 59, 59);
+    color: #aac1f0;
     &:hover {
-      background-color: rgb(168, 254, 254);
+      background-color: #aac1f0;
+      color: #274483;
+    }
+  }
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #aac1f0;
+  a {
+    padding: 0.5rem;
+    width: 100%;
+    color: #274483;
+    border-radius: 0;
+    &:hover {
+      color: #aac1f0;
+      background: #274483;
     }
   }
 }

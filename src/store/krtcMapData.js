@@ -1098,7 +1098,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
     calculateFee(currentStation.value + 1, currentCategory.value);
   };
   const basePrice = ref(20);
-  const calculateFee = function (startStation, category) {
+  const calculateFee = (startStation, category) => {
     if (startStation < 1 || startStation > stationData.value.length) {
       console.error('Invalid startStation index');
       return;
@@ -1220,6 +1220,19 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       console.log('something wrong');
     }
   };
+  const timePosition = [
+    {
+      x: 0,
+      y: 0,
+      time: 2
+    },
+    {
+      x: 0,
+      y: 0,
+      time: 3
+    }
+  ];
+  const showTime = () => {};
 
   return {
     r,
@@ -1229,6 +1242,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
     redLinePoints,
     orangeLinePoints,
     stationData,
+    showTime,
     currentStation,
     currentDiscount,
     basePrice,

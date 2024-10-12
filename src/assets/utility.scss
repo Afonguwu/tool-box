@@ -1,3 +1,6 @@
+.container {
+  padding: 1rem;
+}
 .text-color {
   color: var(--color-text);
   fill: var(--color-text);
@@ -5,4 +8,17 @@
 .border-color {
   border-color: var(--color-border);
   stroke: var(--color-border);
+}
+.ml-a {
+  margin-left: auto;
+}
+.ai-center {
+  display: flex;
+  align-items: center;
+}
+.flex {
+  display: flex;
+}
+.px-1 {
+  padding: 0 1rem;
 }
