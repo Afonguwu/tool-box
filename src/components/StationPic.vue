@@ -117,11 +117,8 @@ const {
 <style lang="scss" scoped>
 .title-color {
   stroke-width: 0.5;
-  stroke: var(--color-border);
+  stroke: var(--color-text);
   fill: var(--color-mrt-orange);
-}
-.dot-fill {
-  fill: var(color-background-soft);
 }
 
 .site {
