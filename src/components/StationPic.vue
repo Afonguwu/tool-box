@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue';
 import { useKRTCStore } from '../store/krtcMapData.js';
 const store = useKRTCStore();
 const {
@@ -9,8 +10,13 @@ const {
   stationData,
   r,
   strokeWidth,
-  calculateFee
+  calculateFee,
+  timePosition
 } = store;
+
+const showTime = computed(() => {
+  return store.showTime;
+});
 </script>
 <template>
   <svg :viewBox="viewBox" style="width: 100%; height: auto" xmlns="http://www.w3.org/2000/svg">
@@ -93,6 +99,11 @@ const {
       ry="12"
       stroke-width="2"
     />
+    <template v-if="showTime === 1">
+      <template v-for="time in timePosition" :key="time.seq">
+        <text :x="time.x" :y="time.y" font-size="1rem" class="text-time">{{ time.time }} 分</text>
+      </template>
+    </template>
     <text x="1020" y="240" font-size="1.5rem" class="text-color">營運路線</text>
     <line x1="1020" y1="250" x2="1280" y2="250" class="border-color" />
     <circle r="18" cx="1040" cy="280" fill="#fff" stroke-width="5" class="red" />
@@ -136,5 +147,10 @@ const {
 }
 .here {
   font-size: 1.5rem;
+}
+
+.text-time {
+  fill: #c48b06;
+  font-weight: bolder;
 }
 </style>

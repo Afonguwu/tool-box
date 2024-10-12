@@ -1217,22 +1217,160 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
         }
       }
     } else {
-      console.log('something wrong');
+      console.log('沒有點選車站');
     }
   };
   const timePosition = [
+    // red line seq 1~24
     {
-      x: 0,
-      y: 0,
+      seq: 1,
+      x: 1035,
+      y: 1855,
       time: 2
     },
     {
-      x: 0,
-      y: 0,
+      seq: 2,
+      x: 870,
+      y: 1855,
       time: 3
+    },
+    {
+      seq: 3,
+      x: 740,
+      y: 1865,
+      time: 3
+    },
+    {
+      seq: 4,
+      x: 675,
+      y: 1810,
+      time: 3
+    },
+    {
+      seq: 5,
+      x: 610,
+      y: 1690,
+      time: 3
+    },
+    {
+      seq: 6,
+      x: 500,
+      y: 1560,
+      time: 2
+    },
+    {
+      seq: 7,
+      x: 500,
+      y: 1465,
+      time: 3
+    },
+    {
+      seq: 8,
+      x: 500,
+      y: 1390,
+      time: 2
+    },
+    {
+      seq: 9,
+      x: 500,
+      y: 1280,
+      time: 2
+    },
+    {
+      seq: 10,
+      x: 500,
+      y: 1215,
+      time: 3
+    },
+    {
+      seq: 11,
+      x: 500,
+      y: 1150,
+      time: 2
+    },
+    {
+      seq: 12,
+      x: 500,
+      y: 1020,
+      time: 2
+    },
+    {
+      seq: 13,
+      x: 500,
+      y: 965,
+      time: 3
+    },
+    {
+      seq: 14,
+      x: 500,
+      y: 900,
+      time: 3
+    },
+    {
+      seq: 15,
+      x: 500,
+      y: 835,
+      time: 3
+    },
+    {
+      seq: 16,
+      x: 500,
+      y: 770,
+      time: 2
+    },
+    {
+      seq: 17,
+      x: 500,
+      y: 705,
+      time: 3
+    },
+    {
+      seq: 18,
+      x: 500,
+      y: 645,
+      time: 2
+    },
+    {
+      seq: 19,
+      x: 500,
+      y: 580,
+      time: 2
+    },
+    {
+      seq: 20,
+      x: 500,
+      y: 515,
+      time: 3
+    },
+    {
+      seq: 21,
+      x: 500,
+      y: 450,
+      time: 2
+    },
+    {
+      seq: 22,
+      x: 500,
+      y: 385,
+      time: 2
+    },
+    {
+      seq: 23,
+      x: 500,
+      y: 325,
+      time: 4
+    },
+    {
+      seq: 24,
+      x: 500,
+      y: 260,
+      time: 2
     }
   ];
-  const showTime = () => {};
+  let showTime = ref(0);
+  const displayTime = (num) => {
+    showTime.value = num;
+  };
 
   return {
     r,
@@ -1242,7 +1380,9 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
     redLinePoints,
     orangeLinePoints,
     stationData,
+    displayTime,
     showTime,
+    timePosition,
     currentStation,
     currentDiscount,
     basePrice,

@@ -3,20 +3,21 @@ import { ref } from 'vue';
 import stationPic from '@/components/StationPic.vue';
 import { useKRTCStore } from '@/store/krtcMapData.js';
 const store = useKRTCStore();
-const { changeDiscount } = store;
+const { changeDiscount, displayTime } = store;
 let select1 = ref('');
 let select2 = ref('');
-let cardType = ref(null);
+let cardType = ref('');
 const changeType = (num) => {
   select1.value = '';
   select2.value = '';
   if (num === 1) {
     changeDiscount(1);
+    displayTime(0);
   } else if (num === 2) {
     changeDiscount(0.85);
-  } else if (num === 0) {
-    console.log('time');
-    // showTime();
+    displayTime(0);
+  } else if (num === 3) {
+    displayTime(1);
   }
   cardType.value = num;
 };
@@ -26,9 +27,9 @@ const changeType = (num) => {
     <div class="flex mt-1">
       <a
         class="btn"
-        :class="cardType === 0 ? 'active' : 'disabled'"
+        :class="cardType === 3 ? 'active' : 'disabled'"
         type="button"
-        @click.prevent="changeType(0)"
+        @click.prevent="changeType(3)"
         ><span class="material-symbols-outlined"> schedule </span>
         <span>行車時間</span>
       </a>
