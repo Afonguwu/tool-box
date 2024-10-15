@@ -83,7 +83,7 @@ const showTime = computed(() => {
           v-show="station.display !== 0"
           @click="calculateFee(station.seq, station.class)"
         >
-          <tspan class="material-symbols-outlined here" v-if="station.display === 'boy'" dy=".4rem">
+          <tspan class="material-symbols-outlined here" v-if="station.display === 'boy'">
             {{ station.display }}
           </tspan>
           <tspan class="" v-else>{{ station.display }}</tspan>
@@ -123,7 +123,7 @@ const showTime = computed(() => {
           v-show="station.display !== 0"
           @click="calculateTime(station.seq, station.class)"
         >
-          <tspan class="material-symbols-outlined here" v-if="station.display === 'boy'" dy=".4rem">
+          <tspan class="material-symbols-outlined here" v-if="station.display === 'boy'">
             {{ station.display }}
           </tspan>
           <tspan class="" v-else>{{ station.display }}</tspan>
