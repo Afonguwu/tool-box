@@ -11,7 +11,7 @@ const {
   r,
   strokeWidth,
   calculateFee,
-  timePosition
+  calculateTime
 } = store;
 
 const showTime = computed(() => {
@@ -50,43 +50,85 @@ const showTime = computed(() => {
       stroke-linecap="round"
       stroke-linejoin="round"
     />
-    <template v-for="(station, i) in stationData" :key="station.seq">
-      <text
-        :x="station.x"
-        :y="station.y"
-        font-size="1rem"
-        class="text-color"
-        :text-anchor="station.textAnchor"
-        :transform="station.transform"
-      >
-        <tspan :fill="station.class" font-weight="bolder">{{ station.stationNum }}</tspan>
-        {{ station.chineseName }}
-      </text>
-      <circle
-        :r="i === 28 ? 20 : r"
-        :cx="station.cx"
-        :cy="station.cy"
-        :fill="i === 28 ? 'none' : station.fee === 'boy' ? '#fefc4d' : '#ffffff'"
-        :stroke-width="strokeWidth"
-        class="site"
-        :class="station.class"
-        @click="calculateFee(station.seq, station.class)"
-      ></circle>
-      <text
-        :x="station.cx"
-        :y="station.cy"
-        text-anchor="middle"
-        dominant-baseline="middle"
-        class="site"
-        dy=".2rem"
-        v-show="station.fee !== 0"
-        @click="calculateFee(station.seq, station.class)"
-      >
-        <tspan class="material-symbols-outlined here" v-if="station.fee === 'boy'" dy=".4rem">
-          {{ station.fee }}
-        </tspan>
-        <tspan class="" v-else>{{ station.fee }}</tspan>
-      </text>
+    <template v-if="showTime === 0">
+      <template v-for="(station, i) in stationData" :key="station.seq">
+        <text
+          :x="station.x"
+          :y="station.y"
+          font-size="1rem"
+          class="text-color"
+          :text-anchor="station.textAnchor"
+          :transform="station.transform"
+        >
+          <tspan :fill="station.class" font-weight="bolder">{{ station.stationNum }}</tspan>
+          {{ station.chineseName }}
+        </text>
+        <circle
+          :r="i === 28 ? 20 : r"
+          :cx="station.cx"
+          :cy="station.cy"
+          :fill="i === 28 ? 'none' : station.display === 'boy' ? '#fefc4d' : '#ffffff'"
+          :stroke-width="strokeWidth"
+          class="site"
+          :class="station.class"
+          @click="calculateFee(station.seq, station.class)"
+        ></circle>
+        <text
+          :x="station.cx"
+          :y="station.cy"
+          text-anchor="middle"
+          dominant-baseline="middle"
+          class="site"
+          dy=".2rem"
+          v-show="station.display !== 0"
+          @click="calculateFee(station.seq, station.class)"
+        >
+          <tspan class="material-symbols-outlined here" v-if="station.display === 'boy'" dy=".4rem">
+            {{ station.display }}
+          </tspan>
+          <tspan class="" v-else>{{ station.display }}</tspan>
+        </text>
+      </template>
+    </template>
+    <template v-if="showTime === 1">
+      <template v-for="(station, i) in stationData" :key="station.seq">
+        <text
+          :x="station.x"
+          :y="station.y"
+          font-size="1rem"
+          class="text-color"
+          :text-anchor="station.textAnchor"
+          :transform="station.transform"
+        >
+          <tspan :fill="station.class" font-weight="bolder">{{ station.stationNum }}</tspan>
+          {{ station.chineseName }}
+        </text>
+        <circle
+          :r="i === 28 ? 20 : r"
+          :cx="station.cx"
+          :cy="station.cy"
+          :fill="i === 28 ? 'none' : station.display === 'boy' ? '#fefc4d' : '#ffffff'"
+          :stroke-width="strokeWidth"
+          class="site"
+          :class="station.class"
+          @click="calculateTime(station.seq, station.class)"
+        ></circle>
+        <text
+          :x="station.cx"
+          :y="station.cy"
+          text-anchor="middle"
+          dominant-baseline="middle"
+          class="site"
+          dy=".2rem"
+          v-show="station.display !== 0"
+          @click="calculateTime(station.seq, station.class)"
+        >
+          <tspan class="material-symbols-outlined here" v-if="station.display === 'boy'" dy=".4rem">
+            {{ station.display }}
+          </tspan>
+          <tspan class="" v-else>{{ station.display }}</tspan>
+        </text>
+      </template>
     </template>
     <rect
       width="20%"
@@ -99,11 +141,6 @@ const showTime = computed(() => {
       ry="12"
       stroke-width="2"
     />
-    <template v-if="showTime === 1">
-      <template v-for="time in timePosition" :key="time.seq">
-        <text :x="time.x" :y="time.y" font-size="1rem" class="text-time">{{ time.time }} 分</text>
-      </template>
-    </template>
     <text x="1020" y="240" font-size="1.5rem" class="text-color">營運路線</text>
     <line x1="1020" y1="250" x2="1280" y2="250" class="border-color" />
     <circle r="18" cx="1040" cy="280" fill="#fff" stroke-width="5" class="red" />

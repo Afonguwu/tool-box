@@ -74,8 +74,9 @@ const changeType = (num) => {
         <option value="0.5">高雄市兒童卡</option>
       </select>
     </div>
-    <p class="mt-1" v-if="select1 === '0.5'">提醒：只有捷運有單程社福票</p>
-    <p class="mt-1" v-if="select2 === '0.425'">提醒：高雄市社福卡搭乘輕軌免費</p>
+    <p class="mt-1 notice" v-if="select1 === '0.5'">提醒：只有捷運有單程社福票</p>
+    <p class="mt-1 notice" v-if="select2 === '0.425'">提醒：高雄市社福卡搭乘輕軌免費</p>
+    <p class="mt-1 notice" v-if="cardType === 3">提醒：輕軌行駛方向會影響行車時間</p>
     <stationPic />
   </div>
 </template>
@@ -115,5 +116,8 @@ const changeType = (num) => {
 select {
   background-color: var(--color-background);
   color: var(--color-text);
+}
+.notice {
+  color: #f49b36;
 }
 </style>
