@@ -20,18 +20,11 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: #282828;
-    --color-background-soft: #222222;
-    --color-background-shape: #181818;
-
     --color-border: rgb(173, 172, 172);
     --color-border-hover: rgba(84, 84, 84, 0.65);
 
     --color-heading: #ffffff;
     --color-text: #ffffff;
-
-    --color-mrt-red: #a60233;
-    --color-mrt-orange: #cc830d;
-    --color-mrt-green: #6aa033;
   }
 }
 
@@ -68,4 +61,33 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.4s;
+  padding: 3px;
+  display: flex;
+  cursor: pointer;
+  align-self: center;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }

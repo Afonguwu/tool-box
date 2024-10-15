@@ -11,7 +11,8 @@ const router = createRouter({
       component: homeView,
       meta: {
         title: 'Tool Box',
-        icon: 'img/box.png'
+        icon: 'img/box.png',
+        darkIcon: 'img/box-light.png'
       }
     },
     {
@@ -20,7 +21,8 @@ const router = createRouter({
       component: krtcView,
       meta: {
         title: '高雄捷運輕軌地圖',
-        icon: 'img/rail.png'
+        icon: 'img/rail.png',
+        darkIcon: 'img/rail-light.png'
       }
     }
   ]
@@ -41,7 +43,9 @@ function updateFavicon(iconUrl) {
 router.beforeEach((to, from, next) => {
   const icon = to.meta.icon;
   if (icon) {
-    updateFavicon(icon);
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const darkIcon = to.meta.darkIcon || icon;
+    updateFavicon(isDarkMode ? darkIcon : icon);
   }
 
   if (to.meta.title) {

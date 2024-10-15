@@ -2,17 +2,3 @@
 @import './utility.scss';
 @import './hearder.scss';
 @import './vender.scss';
-#app {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  font-weight: normal;
-  display: grid;
-}
-
-a {
-  text-decoration: none;
-  transition: 0.4s;
-  padding: 3px;
-}
