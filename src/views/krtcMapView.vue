@@ -6,7 +6,7 @@ const store = useKRTCStore();
 const { changeDiscount, displayTime } = store;
 let select1 = ref('');
 let select2 = ref('');
-let cardType = ref('');
+let cardType = ref(1);
 const changeType = (num) => {
   select1.value = '';
   select2.value = '';
