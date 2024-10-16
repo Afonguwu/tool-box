@@ -71,18 +71,13 @@ body {
 }
 
 a {
+  text-align: center;
   text-decoration: none;
-  transition: 0.4s;
+  transform: 0.4s;
   padding: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-}
-
-button {
-  border: none;
-  background-color: transparent;
   cursor: pointer;
 }
 

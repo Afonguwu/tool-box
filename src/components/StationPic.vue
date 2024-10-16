@@ -119,11 +119,10 @@ const showTime = computed(() => {
           text-anchor="middle"
           dominant-baseline="middle"
           class="site"
-          dy=".2rem"
           v-show="station.display !== 0"
           @click="calculateTime(station.seq, station.class)"
         >
-          <tspan class="material-symbols-outlined here" v-if="station.display === 'boy'">
+          <tspan class="material-symbols-outlined" v-if="station.display === 'boy'">
             {{ station.display }}
           </tspan>
           <tspan class="" v-else>{{ station.display }}</tspan>
@@ -181,13 +180,5 @@ const showTime = computed(() => {
 }
 .green {
   stroke: var(--color-mrt-green);
-}
-.here {
-  font-size: 1.5rem;
-}
-
-.text-time {
-  fill: #c48b06;
-  font-weight: bolder;
 }
 </style>
