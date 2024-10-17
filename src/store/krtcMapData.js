@@ -1166,149 +1166,58 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
       transform: null
     }
   ]);
+  let btnType = ref('');
   let currentStation = ref(null);
   let currentDiscount = ref(1);
   let currentCategory = ref('');
+  const resetDisplay = () => {
+    stationData.value.forEach((element) => {
+      element.display = 0;
+    });
+  };
   const changeDiscount = (discount) => {
     currentDiscount.value = discount;
-    calculateFee(currentStation.value + 1, currentCategory.value);
+    resetDisplay();
   };
   const basePrice = ref(20);
-  const calculateFee = (startStation, category) => {
-    if (startStation < 1 || startStation > stationData.value.length) {
-      console.error('Invalid startStation index');
-      return;
+
+  const calculateMRTFee = (i, station) => {
+    let priceRange = 0;
+    let num = Math.abs(Math.round(stationData.value[i].distance - station));
+
+    if (num < 5) {
+      priceRange = 0;
+    } else if (num < 17) {
+      priceRange = 1 + Math.ceil((num - 5) / 2);
+    } else if (num >= 17) {
+      let count = 1 + Math.ceil((num - 5) / 2) + Math.ceil((num - 17) / 3);
+      priceRange = count >= 8 ? 8 : count;
     }
-    currentCategory.value = category;
-    //起始站 index
-    currentStation.value = startStation - 1;
-    //初始化 display
-    stationData.value.forEach((element) => {
-      element.display = 0;
-    });
-
-    if (currentStation.value < 0 || currentStation.value >= stationData.value.length) {
-      console.error('Invalid currentStation index');
-      return;
-    }
-
-    // 起始站
-    stationData.value[currentStation.value].display = 'boy';
-
-    //美麗島距離出發站距離
-    let transferStation = Math.abs(
-      Math.round(stationData.value[8].distance - stationData.value[currentStation.value].distance)
-    );
-    //捷運還是輕軌
-    if (category === 'red' || category === 'orange') {
-      //[i] 0~38 是 mrt
-      for (let i = 0; i < 39; i++) {
-        //計算票價級距
-        let priceRange = 0;
-        if (i === currentStation.value) continue;
-        if (i === 28) continue;
-        //美麗島票價
-
-        //同一線
-        if (stationData.value[i].class === stationData.value[currentStation.value].class) {
-          let num = Math.abs(
-            Math.round(
-              stationData.value[i].distance - stationData.value[currentStation.value].distance
-            )
-          );
-
-          if (num < 5) {
-            priceRange = 0;
-          } else if (num >= 5 && num < 17) {
-            priceRange = 1 + Math.ceil((num - 5) / 2);
-          } else if (num >= 17) {
-            let count = 1 + Math.ceil((num - 5) / 2) + Math.ceil((num - 17) / 3);
-            priceRange = count >= 8 ? 8 : count;
-          }
-          //計算票價
-          if (currentDiscount.value === 1) {
-            stationData.value[i].display = Math.round(
-              (basePrice.value + 5 * priceRange) * currentDiscount.value
-            );
-          } else {
-            stationData.value[i].display = Math.round(
-              (basePrice.value + 5 * priceRange) * currentDiscount.value
-            );
-          }
-          //不同線
-        } else if (stationData.value[i].class !== stationData.value[currentStation.value].class) {
-          let num = Math.abs(Math.round(stationData.value[i].distance - transferStation));
-
-          if (num < 5) {
-            priceRange = 0;
-          } else if (num >= 5 && num < 17) {
-            priceRange = 1 + Math.ceil((num - 5) / 2);
-          } else if (num >= 17) {
-            let count = 1 + Math.ceil((num - 5) / 2) + Math.ceil((num - 17) / 3);
-            priceRange = count >= 8 ? 8 : count;
-          }
-          //計算票價
-          if (currentDiscount.value === 1) {
-            stationData.value[i].display = Math.round((basePrice.value + 5 * priceRange) * 1);
-          } else {
-            stationData.value[i].display = Math.round(
-              (basePrice.value + 5 * priceRange) * currentDiscount.value
-            );
-          }
-        }
-      }
-      //輕軌
-    } else if (category === 'green') {
-      // [i] 39~76 是輕軌
-      for (let i = 39; i < 77; i++) {
-        //計算票價級距
-        let priceRange = 0;
-        if (i === currentStation.value) continue;
-        let num = Math.abs(
-          Math.round(
-            stationData.value[i].distance - stationData.value[currentStation.value].distance
-          )
-        );
-
-        if (num < 5) {
-          priceRange = 0;
-        } else if (num >= 5 && num < 9) {
-          let count = 1 + Math.ceil((num - 5) / 2);
-          priceRange = count >= 9 ? 3 : count;
-        } else if (num >= 9) {
-          priceRange = 3;
-        }
-        //計算票價
-        //輕軌社福卡 只有五折，和捷運不同
-        let discount = 0;
-        if (currentDiscount.value === 0.425) {
-          discount = 0.5;
-        } else {
-          discount = currentDiscount.value;
-        }
-        if (discount === 1) {
-          stationData.value[i].display = Math.round((basePrice.value + 5 * priceRange) * 1);
-        } else {
-          stationData.value[i].display = Math.round((basePrice.value + 5 * priceRange) * discount);
-        }
-      }
-    }
+    //計算票價
+    stationData.value[i].display =
+      currentDiscount.value === 1
+        ? Math.ceil((basePrice.value + 5 * priceRange) * 1)
+        : Math.ceil((basePrice.value + 5 * priceRange) * currentDiscount.value);
   };
-  const calculateTime = (startStation, category) => {
+  const calculateTime = (i, time) => {
+    let num = Math.abs(Math.round(stationData.value[i].time - time));
+    stationData.value[i].display = num;
+  };
+  const calculate = (startStation, category) => {
+    if (btnType.value === '') {
+      alert('請先點選行車時間或票種按鈕');
+      return;
+    }
     if (startStation < 1 || startStation > stationData.value.length) {
-      console.error('Invalid startStation index');
       return;
     }
     currentCategory.value = category;
     //起始站 index
     currentStation.value = startStation - 1;
     //初始化 display
-    stationData.value.forEach((element) => {
-      element.display = 0;
-    });
+    resetDisplay();
 
     if (currentStation.value < 0 || currentStation.value >= stationData.value.length) {
-      console.error('Invalid currentStation index');
       return;
     }
 
@@ -1317,48 +1226,79 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
 
     //美麗島到出發站行車時間
     let transferStation = Math.abs(
+      Math.round(stationData.value[8].distance - stationData.value[currentStation.value].distance)
+    );
+    //美麗島到出發站行車時間
+    let transferTime = Math.abs(
       Math.round(stationData.value[8].time - stationData.value[currentStation.value].time)
     );
+
     //捷運還是輕軌
     if (category === 'red' || category === 'orange') {
       //[i] 0~38 是 mrt
       for (let i = 0; i < 39; i++) {
         if (i === currentStation.value) continue;
         if (i === 28) continue;
+        if (btnType.value !== 3) {
+          //同一線
+          if (stationData.value[i].class === stationData.value[currentStation.value].class) {
+            calculateMRTFee(i, stationData.value[currentStation.value].distance);
 
-        //同一線
-        if (stationData.value[i].class === stationData.value[currentStation.value].class) {
-          let num = Math.abs(
-            Math.round(stationData.value[i].time - stationData.value[currentStation.value].time)
-          );
-          stationData.value[i].display = num;
-          //不同線
-        } else if (stationData.value[i].class !== stationData.value[currentStation.value].class) {
-          let num = Math.abs(Math.round(stationData.value[i].time - transferStation));
-
-          stationData.value[i].display = num;
+            //不同線
+          } else if (stationData.value[i].class !== stationData.value[currentStation.value].class) {
+            calculateMRTFee(i, transferStation);
+          }
+          console.log(stationData.value);
+        } else {
+          if (stationData.value[i].class === stationData.value[currentStation.value].class) {
+            calculateTime(i, stationData.value[currentStation.value].time);
+          } else {
+            calculateTime(i, transferTime);
+          }
         }
       }
       //輕軌
     } else if (category === 'green') {
       // [i] 39~76 是輕軌
       for (let i = 39; i < 77; i++) {
+        let priceRange = 0;
         if (i === currentStation.value) continue;
-        //計算時間
-        let num = Math.abs(
-          Math.round(stationData.value[i].time - stationData.value[currentStation.value].time)
-        );
+        if (btnType.value !== 3) {
+          let num = Math.abs(
+            Math.round(
+              stationData.value[i].distance - stationData.value[currentStation.value].distance
+            )
+          );
 
-        stationData.value[i].display = num;
+          if (num < 5) {
+            priceRange = 0;
+          } else if (num < 9) {
+            let count = 1 + Math.ceil((num - 5) / 2);
+            priceRange = count >= 9 ? 3 : count;
+          } else if (num >= 9) {
+            priceRange = 3;
+          }
+
+          //計算票價
+          //輕軌社福卡 只有五折，和捷運不同
+          let discount = currentDiscount.value === 0.425 ? 0.5 : currentDiscount.value;
+
+          stationData.value[i].display =
+            discount === 1
+              ? Math.ceil((basePrice.value + 5 * priceRange) * 1)
+              : Math.ceil((basePrice.value + 5 * priceRange) * discount);
+        } else {
+          calculateTime(i, stationData.value[currentStation.value].time);
+        }
       }
     }
   };
+
   let showTime = ref(0);
-  const displayTime = (num) => {
+  const displayTime = (num, type) => {
     showTime.value = num;
-    stationData.value.forEach((item) => {
-      item.display = 0;
-    });
+    btnType.value = type;
+    resetDisplay();
   };
 
   return {
@@ -1375,7 +1315,7 @@ export const useKRTCStore = defineStore('krtcDataStore', () => {
     currentDiscount,
     basePrice,
     changeDiscount,
-    calculateFee,
-    calculateTime
+    calculate,
+    btnType
   };
 });

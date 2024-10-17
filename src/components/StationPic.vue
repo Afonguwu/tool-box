@@ -10,8 +10,7 @@ const {
   stationData,
   r,
   strokeWidth,
-  calculateFee,
-  calculateTime
+  calculate
 } = store;
 
 const showTime = computed(() => {
@@ -71,7 +70,7 @@ const showTime = computed(() => {
           :stroke-width="strokeWidth"
           class="site"
           :class="station.class"
-          @click="calculateFee(station.seq, station.class)"
+          @click="calculate(station.seq, station.class)"
         ></circle>
         <text
           :x="station.cx"
@@ -81,7 +80,7 @@ const showTime = computed(() => {
           class="site"
           dy=".2rem"
           v-show="station.display !== 0"
-          @click="calculateFee(station.seq, station.class)"
+          @click="calculate(station.seq, station.class)"
         >
           <tspan class="material-symbols-outlined here" v-if="station.display === 'boy'">
             {{ station.display }}
@@ -111,7 +110,7 @@ const showTime = computed(() => {
           :stroke-width="strokeWidth"
           class="site"
           :class="station.class"
-          @click="calculateTime(station.seq, station.class)"
+          @click="calculate(station.seq, station.class)"
         ></circle>
         <text
           :x="station.cx"
@@ -120,7 +119,7 @@ const showTime = computed(() => {
           dominant-baseline="middle"
           class="site"
           v-show="station.display !== 0"
-          @click="calculateTime(station.seq, station.class)"
+          @click="calculate(station.seq, station.class)"
         >
           <tspan class="material-symbols-outlined" v-if="station.display === 'boy'">
             {{ station.display }}
