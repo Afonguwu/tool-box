@@ -1,25 +1,26 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import stationPic from '@/components/StationPic.vue';
 import { useKRTCStore } from '@/store/krtcMapData.js';
 const store = useKRTCStore();
 const { changeDiscount, displayTime } = store;
 let select1 = ref('');
 let select2 = ref('');
-let cardType = ref(1);
+const btnType = computed(() => {
+  return store.btnType;
+});
 const changeType = (num) => {
   select1.value = '';
   select2.value = '';
   if (num === 1) {
     changeDiscount(1);
-    displayTime(0);
+    displayTime(0, num);
   } else if (num === 2) {
     changeDiscount(0.85);
-    displayTime(0);
+    displayTime(0, num);
   } else if (num === 3) {
-    displayTime(1);
+    displayTime(1, num);
   }
-  cardType.value = num;
 };
 </script>
 <template>
@@ -31,7 +32,7 @@ const changeType = (num) => {
             <div class="col-12">
               <a
                 class="btn-orange w-100 text-nowrap"
-                :class="cardType === 1 ? 'active' : 'disabled'"
+                :class="btnType === 1 ? 'active' : 'disabled'"
                 type="button"
                 @click.prevent="changeType(1)"
                 ><span class="material-symbols-outlined"> transit_ticket </span>
@@ -41,7 +42,7 @@ const changeType = (num) => {
             <div class="col-12 mt-1">
               <a
                 class="btn-orange w-100 text-nowrap"
-                :class="cardType === 2 ? 'active' : 'disabled'"
+                :class="btnType === 2 ? 'active' : 'disabled'"
                 type="button"
                 @click.prevent="changeType(2)"
                 ><span class="material-symbols-outlined"> credit_card </span> <span>電子票證</span>
@@ -50,7 +51,7 @@ const changeType = (num) => {
             <div class="col-12 mt-1">
               <a
                 class="btn-orange w-100 text-nowrap"
-                :class="cardType === 3 ? 'active' : 'disabled'"
+                :class="btnType === 3 ? 'active' : 'disabled'"
                 type="button"
                 @click.prevent="changeType(3)"
                 ><span class="material-symbols-outlined"> schedule </span>
@@ -61,7 +62,7 @@ const changeType = (num) => {
           <div class="col-6 h-50 row g-1">
             <select
               class="w-100"
-              v-if="cardType === 1"
+              v-if="btnType === 1"
               @change="changeDiscount($event.target.value)"
               v-model="select1"
               name=""
@@ -73,7 +74,7 @@ const changeType = (num) => {
             </select>
             <select
               class="w-100"
-              v-if="cardType === 2"
+              v-if="btnType === 2"
               @change="changeDiscount($event.target.value)"
               v-model="select2"
               name=""
@@ -91,7 +92,7 @@ const changeType = (num) => {
           <p class="notice text-nowrap" v-if="select2 === '0.425'">
             提醒：高雄市社福卡搭乘輕軌免費
           </p>
-          <p class="notice text-nowrap" v-if="cardType === 3">提醒：輕軌行駛方向會影響行車時間</p>
+          <p class="notice text-nowrap" v-if="btnType === 3">提醒：輕軌行駛方向會影響行車時間</p>
         </div>
       </div>
       <div class="col-12 col-md-8">
