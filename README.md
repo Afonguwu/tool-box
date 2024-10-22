@@ -6,11 +6,17 @@
 
 - 資料整理及邏輯發想：[Whimsical](https://whimsical.com/tool-box-J8pDekTdv27TE6R3Z7yU7g)
 
-- 參考來源：[工具邦](https://tw.piliapp.com/)
+- 工具1 參考來源：
+  - [工具邦](https://tw.piliapp.com/)
+  - [高雄捷運導覽圖](https://www.krtc.com.tw/Guide/guide_map)
 
 ## 工具1：高雄捷運地圖
 
 - 說明：用於計算高雄捷運及輕軌的不同票種票價、行車時間
+- 相關組件：
+  - views：`krtcMapView.vue`地圖頁面
+  - components：`StationPic.vue`svg地圖
+  - store：`krtcMapData.js` 頁面共用資料及方法
 - 畫面：
   ![PC 畫面](/public/README/kmrtMap-pc.png 'PC 畫面')
   ![Mobile 畫面](/public/README/kmrtMap-mobile.png 'Mobile 畫面')
