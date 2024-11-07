@@ -1,22 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-const homeView = () => import('@/views/HomeView.vue');
-const krtcView = () => import('@/views/krtcMapView.vue');
+const krtcView = () => import('@/views/HomeView.vue');
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: homeView,
-      meta: {
-        title: 'Tool Box',
-        icon: 'img/box.png',
-        darkIcon: 'img/box-light.png'
-      }
-    },
-    {
-      path: '/krtcMap',
       name: '高雄捷運輕軌地圖',
       component: krtcView,
       meta: {
