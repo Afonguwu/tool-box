@@ -4,9 +4,12 @@
 
 - 資料整理及邏輯發想：[Whimsical](https://whimsical.com/tool-box-J8pDekTdv27TE6R3Z7yU7g)
 
-- 參考來源：[工具邦](https://tw.piliapp.com/)
-
+- 參考來源：
+  - [工具邦](https://tw.piliapp.com/)
+  - [高雄捷運導覽圖](https://www.krtc.com.tw/Guide/guide_map)
+  
 - 說明：用於計算高雄捷運及輕軌的不同票種票價、行車時間的工具
+
 - 畫面：
   ![PC 畫面](/public/README/kmrtMap-pc.png 'PC 畫面')
   ![Mobile 畫面](/public/README/kmrtMap-mobile.png 'Mobile 畫面')
