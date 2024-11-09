@@ -31,10 +31,8 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-weight: normal;
 }
 
 body {
@@ -79,12 +77,4 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-}
-
-ul,
-ol {
-  list-style: none;
-  padding: 0;
-  margin: 0;
 }

@@ -24,9 +24,9 @@ const changeType = (num) => {
 };
 </script>
 <template>
-  <div class="container-xl mt-2">
+  <div class="container-xxl">
     <div class="row d-flex flex-column flex-md-row">
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-4 sticky-top btn-bg">
         <div class="col-12 row g-1 d-flex flex-md-row">
           <div class="col-5 me-1">
             <div class="col-12">
@@ -87,7 +87,7 @@ const changeType = (num) => {
             </select>
           </div>
         </div>
-        <div class="col-12 mt-1">
+        <div class="col-12 mt-2">
           <p class="notice text-nowrap" v-if="select1 === '0.5'">提醒：只有捷運有單程社福票</p>
           <p class="notice text-nowrap" v-if="select2 === '0.425'">
             提醒：高雄市社福卡搭乘輕軌免費
@@ -113,20 +113,25 @@ const changeType = (num) => {
     border-color: #f49b36;
   }
 }
+.btn-bg {
+  background-color: #f8e6d1;
+  padding: 1rem;
+}
 .active {
   background-color: #d94800;
   color: #fff;
 }
 .disabled {
-  background-color: var(--color-background);
+  background-color: #ffffff;
   color: #f49b36;
   border-color: #f49b36;
 }
 select {
-  background-color: var(--color-background);
-  color: var(--color-text);
+  background-color: #fff;
 }
 .notice {
   color: #f49b36;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 </style>

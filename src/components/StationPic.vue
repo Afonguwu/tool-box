@@ -19,9 +19,6 @@ const showTime = computed(() => {
 </script>
 <template>
   <svg :viewBox="viewBox" style="width: 100%; height: auto" xmlns="http://www.w3.org/2000/svg">
-    <text x="50" y="150" font-size="2rem" font-weight="bolder" class="title-color">
-      高雄捷運輕軌路線圖
-    </text>
     {/* light rail */}
     <polyline
       :points="lightRailPoints"
