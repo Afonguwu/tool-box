@@ -1,23 +1,15 @@
-# tool-box
+# 工具1：高雄捷運地圖
 
 ## 專案發想
-
-想做一個有許多日常小工具的網頁
 
 - 資料整理及邏輯發想：[Whimsical](https://whimsical.com/tool-box-J8pDekTdv27TE6R3Z7yU7g)
 
 - 參考來源：[工具邦](https://tw.piliapp.com/)
 
-## 工具1：高雄捷運地圖
-
-- 說明：用於計算高雄捷運及輕軌的不同票種票價、行車時間
+- 說明：用於計算高雄捷運及輕軌的不同票種票價、行車時間的工具
 - 畫面：
   ![PC 畫面](/public/README/kmrtMap-pc.png 'PC 畫面')
   ![Mobile 畫面](/public/README/kmrtMap-mobile.png 'Mobile 畫面')
-
-## 工具2：三餐擲筊
-
-## 工具3：爬格子
 
 ## Project Setup
 
@@ -37,25 +29,6 @@ npm run dev
 
 ```sh
 npm run git-update-dev
-```
-
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
-
-```sh
-# Install browsers for the first run
-npx playwright install
-
-# When testing on CI, must build the project first
-npm run build
-
-# Runs the end-to-end tests
-npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
