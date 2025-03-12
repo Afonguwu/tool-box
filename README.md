@@ -11,7 +11,7 @@
 - [專案心得](#專案心得)
   
 ## 專案發想
-實作 SVG 元素結合資料串接
+實作 SVG 操作建立互動式路線圖，並解決 Vue 與 SVG 的資料綁定問題，確保即時更新票價與行車時間。
 - 資料整理及邏輯發想：[Whimsical](https://whimsical.com/tool-box-J8pDekTdv27TE6R3Z7yU7g)
 
 - 參考來源：
